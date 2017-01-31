@@ -1,7 +1,7 @@
 function btnPress(event) {
     if (event.keyCode == 13) {
         if (validateInput()) {
-            alert("good");
+            getAgeInSec();
         } else {
             errorMessageThere("visible");
             window.setTimeout(function () {
@@ -19,4 +19,11 @@ function validateInput() {
 
 function errorMessageThere(bool) {
     document.getElementById("badInp").style.visibility = bool;
+}
+
+function getAgeInSec() {
+    var intdob = document.getElementById("dob").value.match(/\d/g).join("") + 12 + "00" + "00";
+    var currentday = new Date();
+    var intcurrentday = "" + currentday.toLocaleDateString().replace(/\//g, '') + currentday.getHours() + currentday.getMinutes() + currentday.getSeconds();
+    alert("Date of Birth: " + intdob + "\nCurrent Day: " + intcurrentday + "\n\nDifference in seconds: " + (intcurrentday - intdob));
 }
