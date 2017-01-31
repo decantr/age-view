@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+#badInp {
+    visibility: hidden;
+    color: #E53935;
+    font-style: italic;
+}
+
 /*  css for the dob box from scotch.io  */
 .holder {
     position: relative;
