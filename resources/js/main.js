@@ -2,6 +2,7 @@ function btnPress(event) {
     if (event.keyCode == 13) {
         if (validateInput()) {
             getAgeInSec();
+            assembleGraphs();
         } else {
             errorMessageThere("visible");
             window.setTimeout(function () {
@@ -26,4 +27,12 @@ function getAgeInSec() {
     var currentday = new Date();
     var intcurrentday = "" + currentday.toLocaleDateString().replace(/\//g, '') + currentday.getHours() + currentday.getMinutes() + currentday.getSeconds();
     alert("Date of Birth: " + intdob + "\nCurrent Day: " + intcurrentday + "\n\nDifference in seconds: " + (intcurrentday - intdob));
+}
+
+function assembleGraphs(){
+    var barData = {
+        labels: ['Age'],
+        data: [getAgeInSec()]
+    }
+    var ageS = new Chart(document.getElementById("ageSeconds").getContext('2d')).bar(barData);
 }

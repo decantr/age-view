@@ -9,14 +9,14 @@
 </head>
 <body>
 <div class="holder" id="holdob">
-    <input type="text" id="dob" oninput="btnPress(event)" onkeypress="btnPress(event);" required>
+    <label for="dob"></label><input type="text" id="dob" oninput="btnPress(event)" onkeypress="btnPress(event);" required>
     <span class="line"></span>
     <span class="bar" id="bar0"></span>
     <p id="badInp">Wrong format for date!</p>
     <label>DD/MM/YYYY</label>
 </div>
 <div class="holder" id="holdgraph">
-
+    <canvas id="ageSeconds" width="500" height="400"></canvas>
 </div>
 </body>
 </html>
