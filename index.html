@@ -5,15 +5,18 @@
     <title>Age view</title>
     <link rel='stylesheet' href='resources/css/main.css'>
     <script type="text/javascript" src="resources/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
 </head>
 <body>
-<div class="holder">
-    <input type="text" id="dob" oninput="btnPress(event)" onkeypress="btnPress(event);" required>
+<div class="holder" id="holdob">
+    <label for="dob"></label><input type="text" id="dob" oninput="btnPress(event)" onkeypress="btnPress(event);" required>
     <span class="line"></span>
     <span class="bar" id="bar0"></span>
     <p id="badInp">Wrong format for date!</p>
     <label>DD/MM/YYYY</label>
 </div>
-
+<div class="holder" id="holdgraph">
+    <canvas id="ageSeconds" width="500" height="400"></canvas>
+</div>
 </body>
 </html>
