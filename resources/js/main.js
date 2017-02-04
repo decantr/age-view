@@ -27,6 +27,7 @@ function getAgeInSec() {
     var dateDob = new Date(dob.substring(6, 10), (dob.substring(3, 5) - 1), dob.substring(0, 2));
     var dateCurr = new Date();
     var timeDiff = Math.abs(dateCurr.getTime() - dateDob.getTime());
+    timeDiff = Math.floor(timeDiff / 1000);
 
-    return "Date of Birth: " + dateDob.getTime() + "\nCurrent Day: " + dateCurr.getTime() + "\n\nDifference in seconds: " + (timeDiff / 1000);
+    return "Date of Birth: " + dateDob.getTime() + "\nCurrent Day: " + dateCurr.getTime() + "\n\nDifference in seconds: " + (timeDiff);
 }
