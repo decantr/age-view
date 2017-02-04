@@ -14,7 +14,7 @@ function btnPress(event) {
 }
 
 function validateInput() {
-    return /^([0-9]{1,2})\/([0-12]{1,2})\/([0-9]{4})$/.test(document.getElementById("dob").value);
+    return /^([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{4})$/.test(document.getElementById("dob").value);
 }
 
 function errorMessageThere(bool) {
