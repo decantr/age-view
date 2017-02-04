@@ -15,7 +15,7 @@ function btnPress(event) {
 
 function validateInput() {
     var dobBox = document.getElementById("dob").value;
-    return /^([0-3]{1}[0-9]{1})\/([0-9]{1,2})\/([0-9]{4})$/.test(dobBox);
+    return /^([0-3][0-9])\/([0-1][0-9])\/([0-9]{4})$/.test(dobBox);
 }
 
 function errorMessageThere(bool) {
@@ -24,7 +24,7 @@ function errorMessageThere(bool) {
 
 function getAgeInSec() {
     var dob = document.getElementById("dob").value;
-    var dateDob = new Date(dob.substr(6, 10), (dob.substr(3, 5) - 1), dob.substr(0, 2));
+    var dateDob = new Date(dob.substring(6, 10), (dob.substring(3, 5) - 1), dob.substring(0, 2));
     var dateCurr = new Date();
     var timeDiff = Math.abs(dateCurr.getTime() - dateDob.getTime());
 
