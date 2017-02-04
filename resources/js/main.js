@@ -1,7 +1,7 @@
 function btnPress(event) {
     if (event.keyCode == 13) {
         if (validateInput()) {
-            getAgeInSec();
+            alert(getAgeInSec());
         } else {
             errorMessageThere("visible");
             window.setTimeout(function () {
@@ -14,7 +14,8 @@ function btnPress(event) {
 }
 
 function validateInput() {
-    return /^([0-9]{1,2})\/([0-12]{1,2})\/([0-9]{4})$/.test(document.getElementById("dob").value);
+    var dobBox = document.getElementById("dob").value;
+    return /^([0-3]{1}[0-9]{1})\/([0-9]{1,2})\/([0-9]{4})$/.test(dobBox);
 }
 
 function errorMessageThere(bool) {
@@ -22,8 +23,10 @@ function errorMessageThere(bool) {
 }
 
 function getAgeInSec() {
-    var intdob = document.getElementById("dob").value.match(/\d/g).join("") + 12 + "00" + "00";
-    var currentday = new Date();
-    var intcurrentday = "" + currentday.toLocaleDateString().replace(/\//g, '') + currentday.getHours() + currentday.getMinutes() + currentday.getSeconds();
-    alert("Date of Birth: " + intdob + "\nCurrent Day: " + intcurrentday + "\n\nDifference in seconds: " + (intcurrentday - intdob));
+    var dob = document.getElementById("dob").value;
+    var dateDob = new Date(dob.substr(6, 10), (dob.substr(3, 5) - 1), dob.substr(0, 2));
+    var dateCurr = new Date();
+    var timeDiff = Math.abs(dateCurr.getTime() - dateDob.getTime());
+
+    return "Date of Birth: " + dateDob.getTime() + "\nCurrent Day: " + dateCurr.getTime() + "\n\nDifference in seconds: " + (timeDiff / 1000);
 }
