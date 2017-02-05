@@ -1,26 +1,27 @@
 function btnPress(event) {
     if (event.keyCode == 13) {
-        if (validateInput()) {
+        if (isInputValid()) {
             alert(getAgeInSec());
         } else {
-            errorMessageThere("visible");
+            setErrorMessage("visible");
             window.setTimeout(function () {
-                errorMessageThere("hidden")
+                setErrorMessage("hidden")
             }, 1000);
         }
     } else {
-        document.getElementById("dob").style.color = validateInput() ? "#3F51B5" : "#E53935";
+        document.getElementById("dob").style.color = isInputValid() ? "#3F51B5" : "#E53935";
     }
 }
 
-function validateInput() {
+function setErrorMessage(bool) {
+    document.getElementById("badInp").style.visibility = bool;
+}
+
+function isInputValid() {
     var dobBox = document.getElementById("dob").value;
     return /^([0-3][0-9])\/([0-1][0-9])\/([0-9]{4})$/.test(dobBox);
 }
 
-function errorMessageThere(bool) {
-    document.getElementById("badInp").style.visibility = bool;
-}
 
 function getAgeInSec() {
     var dob = document.getElementById("dob").value;
