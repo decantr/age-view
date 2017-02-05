@@ -1,7 +1,7 @@
 function btnPress(event) {
     if (event.keyCode == 13) {
         if (isInputValid()) {
-            alert(getAgeInSec());
+            alert(getAgeInfo());
         } else {
             setErrorMessage("visible");
             window.setTimeout(function () {
@@ -22,13 +22,26 @@ function isInputValid() {
     return /^([0-3][0-9])\/([0-1][0-9])\/([0-9]{4})$/.test(dobBox);
 }
 
-
-function getAgeInSec() {
+function getDateDob() {
     var dob = document.getElementById("dob").value;
     var dateDob = new Date(dob.substring(6, 10), (dob.substring(3, 5) - 1), dob.substring(0, 2));
-    var dateCurr = new Date();
-    var timeDiff = Math.abs(dateCurr.getTime() - dateDob.getTime());
+
+    return dateDob;
+}
+
+function getCurrentDate() {
+    return new Date();   
+}
+
+function getAgeInSec() {
+    var timeDiff = Math.abs(getCurrentDate().getTime() - getDateDob().getTime());
     timeDiff = Math.floor(timeDiff / 1000);
 
-    return "Date of Birth: " + dateDob.getTime() + "\nCurrent Day: " + dateCurr.getTime() + "\n\nDifference in seconds: " + (timeDiff);
+    return timeDiff;
+}
+
+function getAgeInfo() {
+    return "Date of Birth: " + getDateDob().getTime()
+                             + "\nCurrent Day: " + getCurrentDate().getTime() 
+                             + "\n\nDifference in seconds: " + (getAgeInSec());
 }
