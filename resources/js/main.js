@@ -1,7 +1,8 @@
 function btnPress(event) {
     if (event.keyCode == 13) {
         if (isInputValid()) {
-            alert(getAgeInfo());
+            document.getElementById('holdob').style.display = "none";
+            buildGraph(getAgeInSec());
         } else {
             setErrorMessage("visible");
             window.setTimeout(function () {
