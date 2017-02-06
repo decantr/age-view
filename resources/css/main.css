@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+#ageChart {
+    visibility: hidden;
+}
+
+
 #badInp {
     visibility: hidden;
     color: #E53935;
